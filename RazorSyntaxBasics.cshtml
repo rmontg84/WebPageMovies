@@ -1,0 +1,55 @@
+﻿@{ var total = 7; 
+ var myMessage = "Hello World"; 
+
+    var greeting = "Welcome to our site!";
+    var weekDay = DateTime.Now.DayOfWeek;
+    var greetingMessage = greeting + " Today is: " + weekDay;
+
+ var myQuote = @"The person said: ""Hello, today is Monday."""; 
+
+ for(var i = 10; i < 21; i++)
+{
+    <p>Line #: @i</p>
+}
+}
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Learning Razor Syntax Basics</title>
+    </head>
+    <body>
+        <p>The value of your account is: @total </p>
+        <p>The value of myMessage is: @myMessage</p> 
+        
+        <p>The greeting is: @greetingMessage</p>
+        <p>@myQuote</p> 
+        
+        <table border="1">
+<tr>
+    <td>Requested URL</td>
+    <td>Relative Path</td>
+    <td>Full Path</td>
+    <td>HTTP Request Type</td>
+</tr>
+<tr>
+    <td>@Request.Url</td>
+    <td>@Request.FilePath</td>
+    <td>@Request.MapPath(Request.FilePath)</td>
+    <td>@Request.RequestType</td>
+</tr>
+</table>     
+        @for(var i = 10; i < 21; i++)
+{
+    <p>Line #: @i</p>
+}
+<ul>
+        @foreach (var myItem in Request.ServerVariables)
+{
+    <li>@myItem</li>
+}
+    @ObjectInfo.Print(Request.ServerVariables)
+    </ul>
+    </body>
+</html>
